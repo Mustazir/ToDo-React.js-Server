@@ -30,7 +30,7 @@ async function run() {
     const tasksCollection = database.collection('tasks');
 
     app.get('/users', async (req, res) => {
-      const result = await usersCollection.find().toArray();
+      const result = await UserCollection.find().toArray();
       res.send(result);
     });
 
@@ -38,12 +38,12 @@ async function run() {
       const newUser = req.body;
       const query = { email: newUser.email };
 
-      const existingUser = await usersCollection.findOne(query);
+      const existingUser = await UserCollection.findOne(query);
       if (existingUser) {
         return res.send({ message: 'User already exists' });
       }
 
-      const result = await usersCollection.insertOne(newUser);
+      const result = await UserCollection.insertOne(newUser);
       res.send(result);
     });
 
