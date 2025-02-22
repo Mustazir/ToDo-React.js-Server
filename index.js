@@ -110,14 +110,14 @@ async function run() {
   } catch (error) {
     console.error("❌ Error connecting to MongoDB:", error);
   }
-// }
+}
 
-// run();
+run();
 
-// app.get('/', (req, res) => {
-//   res.send('✅ To-Do server is running');
-// });
+app.get('/', (req, res) => {
+  res.send('✅ To-Do server is running');
+});
 
-// app.listen(port, () => {
-//   console.log(`🚀 Server is running on port ${port}`);
-// });
+app.listen(port, () => {
+  console.log(`🚀 Server is running on port ${port}`);
+});
